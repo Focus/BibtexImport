@@ -1,0 +1,9 @@
+{
+  "name"    : "bibteximport",
+  "productName": "Bibtex Import",
+  "version" : "0.1.0",
+  "main"    : "lib/main.js",
+  "application" : {
+    "name" : "Bibtex Import"
+  }
+}
