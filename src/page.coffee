@@ -19,8 +19,6 @@ dialogTitle = document.getElementById "modalTitle"
 
 ct = new CiteTable(citeTable)
 
-# Config.setConf("amspairing", "c267f5dcfe0efa1c9e3a994b86fecbb8")
-
 ipc.on "copy", ->
   cites = ct.getHighlighted()
   text = ""
