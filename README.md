@@ -4,7 +4,11 @@
 
 **You need a MathSciNet subscription or access in order to use this software**
 
-It is written in [CoffeeScript](http://coffeescript.org) and built using [Electron](http://electron.atom.io) and [Node.js](https://nodejs.org/)
+It is written in [CoffeeScript](http://coffeescript.org) and built using [Electron](http://electron.atom.io) and [Node.js](https://nodejs.org/).
+
+Installation
+==========
+
 
 Usage
 =====
@@ -17,5 +21,5 @@ Press search or hit ENTER. The results of the search will appear on the table. Y
 
 Todo
 ====
-- [ ] Include support for [remote access](http://www.ams.org/publications/remoteaccess)
+- [x] Include support for [remote access](http://www.ams.org/publications/remoteaccess)
 - [ ] Set up auto-updates

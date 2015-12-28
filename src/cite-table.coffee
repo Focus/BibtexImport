@@ -62,3 +62,6 @@ class CiteTable
       @highlighted = [0..@citations.length-1]
       for tr in trs
         tr.style.background = "lightblue"
+  flush: ->
+    @citations = []
+    @highlighted = []
