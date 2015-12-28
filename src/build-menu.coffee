@@ -46,13 +46,11 @@ exports.buildMenu = (newWindowFunc)->
     ]}
     {label: 'Window'
     submenu: [
-      {label: 'Minimize', accelerator: 'CmdOrCtrl+M', role: 'performMiniaturize'}
-      {label: 'Close', accelerator: 'CmdOrCtrl+W', role: 'performClose'}
-      {type: 'separator'}
-      {label: 'Bring All to Front', role: 'arrangeInFront'}
+      {label: 'Minimize', accelerator: 'CmdOrCtrl+M', role: 'minimize'}
+      {label: 'Close', accelerator: 'CmdOrCtrl+W', role: 'close'}
     ]}
     {label: 'Help', submenu: [
-      {label: 'Learn More', click: -> require('electron').shell.openExternal "http://www.batisengul.co.uk/"}
+      {label: 'Learn More', click: -> require('electron').shell.openExternal "https://github.com/focus/bibteximport/"}
       ]}
   ]
 
