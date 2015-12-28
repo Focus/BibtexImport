@@ -5,5 +5,17 @@
   "main"    : "lib/main.js",
   "application" : {
     "name" : "Bibtex Import"
+  },
+  "dependencies": {
+    "jquery": "^2.0.0",
+    "bootstrap": "^3.0.0",
+    "coffee-script": "^1.8.0"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.0"
+  },
+  "scripts": {
+    "start": "./scripts/compile.sh && electron ./",
+    "build": "./scripts/compile.sh && electron-packager ./ BibtexImport --platform=darwin --arch=x64 --version=0.36.0 --icon=./icons/icon.icns --overwrite --out=./bins/"
   }
 }

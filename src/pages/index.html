@@ -3,12 +3,12 @@
 
 <head>
   <title>Bibtex Import</title>
-  <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="./bootstrap.min.css" />
 </head>
 
 <body>
 
-  <nav class="navbar navbar-top">
+  <nav class="navbar navbar-default">
     <div class="container">
       <form class="form-inline">
         <div class="navbar-form navbar-right">
@@ -18,7 +18,7 @@
           <div class="form-group">
             <input type="text" placeholder="Title" id="title" class="form-control">
           </div>
-          <button class="btn btn-default navbar-btn" type="button" id="searchButton">Search</button>
+          <button class="btn btn-default navbar-btn" type="button" id="searchButton" data-loading-text="Searching">Search</button>
         </div>
       </form>
 
@@ -26,26 +26,17 @@
   </nav>
 
   <div class="container">
-    <table class="table table-striped" id="localTable"></table>
+    <table class="table table-striped" id="citeTable"></table>
   </div>
 
-
-  <!-- Modal -->
-  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+  <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title" id="myModalLabel">Search Results</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h5 class="modal-title" id="myModalLabel">Error</h5>
         </div>
-        <div class="modal-body" id="modalBody">
-            <table class="table table-striped" id="modalTable"></table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="modalAdd">Add</button>
+        <div class="modal-body" id="dialogContent">
         </div>
       </div>
     </div>
