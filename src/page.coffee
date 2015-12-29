@@ -30,6 +30,11 @@ ipc.on "copy", ->
 ipc.on "selectAll", ->
   ct.selectAll()
 
+ipc.on "agreement", ->
+  modalTitle.innerHTML = "Licence agreement"
+  dialogContent.innerHTML = "By using this app, you agree to the posted terms and conditions of use of AMS electronic products, and you confirm that you are an authorized user as per the terms and conditions of the signed license agreement(s) of the subscribing institution. Note that any violation of the posted terms and conditions and/or the terms and conditions of the signed license agreement(s) will result in termination of your access."
+  jQuery("#modal").modal("show")
+
 ipc.on "paired", ->
   modalTitle.innerHTML = "Remote access obtained!"
   dialogContent.innerHTML = "I have obtained remote access for you. This means that you will have access to MathSciNet everywhere."
