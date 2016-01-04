@@ -1,7 +1,7 @@
 {
   "name": "bibteximport",
   "productName": "Bibtex Import",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "http://www.batisengul.co.uk/",
   "main": "lib/main.js",
   "application": {

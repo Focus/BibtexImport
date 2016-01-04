@@ -3,12 +3,12 @@ ipc = require('electron').ipcMain
 BrowserWindow = require('electron').BrowserWindow
 Config = require './configuration'
 
-require('electron').crashReporter.start([{
+require('electron').crashReporter.start({
   productName: app.getName(),
   companyName: "Focus.apps",
   submitURL: "https://github.com/focus/bibteximport/issues",
   autoSubmit: true
-  }])
+  })
 
 
 newWindow= ->
