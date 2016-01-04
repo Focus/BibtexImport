@@ -31,6 +31,7 @@ exports.buildMenu = (newWindowFunc)->
       {label: 'Undo', accelerator: 'CmdOrCtrl+Z', role: 'undo'}
       {label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', role: 'redo'}
       {type: 'separator'}
+      {label: 'Cut', accelerator: 'CmdOrCtrl+X', role: 'cut'}
       {label: 'Copy', accelerator: 'CmdOrCtrl+C', click: (item, focusedWindow)->
         focusedWindow.send "copy" }
       {label: 'Paste', accelerator: 'CmdOrCtrl+V', role: 'paste'}

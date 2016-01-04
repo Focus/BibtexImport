@@ -20,15 +20,23 @@ dialogTitle = document.getElementById "modalTitle"
 ct = new CiteTable(citeTable)
 
 ipc.on "copy", ->
-  cites = ct.getHighlighted()
-  text = ""
-  for cite in cites
-    text += cite.toString()
-    text += "\n"
-  clipboard.writeText(text)
+  if authorField is document.activeElement or titleField is document.activeElement
+    clipboard.writeText window.getSelection().toString()
+  else
+    cites = ct.getHighlighted()
+    text = ""
+    for cite in cites
+      text += cite.toString()
+      text += "\n"
+    clipboard.writeText text
 
 ipc.on "selectAll", ->
-  ct.selectAll()
+  if authorField is document.activeElement
+    authorField.select()
+  if titleField is document.activeElement
+    titleField.select()
+  else
+    ct.selectAll()
 
 ipc.on "agreement", ->
   modalTitle.innerHTML = "Licence agreement"
