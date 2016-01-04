@@ -57,22 +57,13 @@
         </section>
 
         <aside id="sidebar">
-          <div id="downloadLink"></div>
+          <a href="" class="button" id="link"><small id="small"></small></a>
           <p class="repo-owner"><a href="https://github.com/Focus/BibtexImport/releases">Download for an other platform</a></p>
         </aside>
       </div>
     </div>
     
-    <script>
-      var platform = window.navigator.platform;
-      var link = document.getElementById("downloadLink");
-      if(platform === "MacIntel"){
-        link.innerHTML = '<a href="https://github.com/Focus/BibtexImport/releases/download/v1.0.0/BibtexImport.app.zip" class="button"><small>Binary</small>OS X 64bit</a>';
-      }
-      else{
-        link.innerHTML = '<p>Sorry your platform does not have a binary file yet or cannot be identified correctly.';
-      }
-    </script>
+    <script src="./javascripts/main.js"></script>
 
   
   </body>
