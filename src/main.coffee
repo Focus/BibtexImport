@@ -10,6 +10,30 @@ require('electron').crashReporter.start({
   autoSubmit: true
   })
 
+compareVersions= (ver1, ver2)->
+  vp1 = ver1.split "."
+  vp2 = ver2.split "."
+  for v, i in vp1
+    if i > vp2.length-1 or v > vp2[i]
+      return true
+  return false
+
+
+checkForUpdates= ->
+  request = require 'request'
+  request {url:"https://github.com/Focus/BibtexImport/releases/latest", followRedirect: false}, (error, response, body)->
+    if error
+      console.log(error)
+      return
+    if response.statusCode isnt 302
+      console.log(response)
+      return
+    version = body.match(/\/v(.*?)"/)
+    if version.length > 1
+      pjson = require '../package.json'
+      if compareVersions version[1], pjson.version
+        console.log "update required"
+
 
 newWindow= ->
   win = new BrowserWindow {width:800 , height:820}
@@ -22,6 +46,7 @@ newWindow= ->
 app.on "ready", ->
   require('./build-menu').buildMenu(newWindow)
   newWindow()
+  checkForUpdates()
 
 app.on "window-all-closed", ->
   if process.platform isnt "darwin"

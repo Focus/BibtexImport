@@ -8,19 +8,6 @@ ipc = require('electron').ipcMain
 exports.buildMenu = (newWindowFunc)->
   name = app.getName()
   template = [
-    {label: name
-    submenu: [
-      {label: 'About ' + name, role: 'about'}
-      {type: 'separator'}
-      {label: 'Services', role: "services", submenu: []}
-      {type: 'separator'}
-      {label: 'Hide ' + name, accelerator: 'CmdOrCtrl+H', role: 'hide'}
-      {label: 'Hide Others', accelerator: 'CmdOrCtrl+Shift+H', role: 'hideothers'}
-      {label: 'Show All', role: 'unhide'}
-      {type: 'separator'}
-      {label: 'Quit', accelerator: 'CmdOrCtrl+Q', click: ->
-        app.quit() }
-    ]}
     {label:'File'
     submenu: [
         {label:'New', accelerator: 'CmdOrCtrl+N', click: ->
@@ -54,6 +41,28 @@ exports.buildMenu = (newWindowFunc)->
       {label: 'Learn More', click: -> require('electron').shell.openExternal "https://github.com/focus/bibteximport/"}
       ]}
   ]
+  if process.platform is "darwin"
+    template.unshift {label: name
+    submenu: [
+      {label: 'About ' + name, role: 'about'}
+      {type: 'separator'}
+      {label: 'Services', role: "services", submenu: []}
+      {type: 'separator'}
+      {label: 'Hide ' + name, accelerator: 'CmdOrCtrl+H', role: 'hide'}
+      {label: 'Hide Others', accelerator: 'CmdOrCtrl+Shift+H', role: 'hideothers'}
+      {label: 'Show All', role: 'unhide'}
+      {type: 'separator'}
+      {label: 'Quit', accelerator: 'CmdOrCtrl+Q', click: ->
+        app.quit() }
+    ]}
+    template[4].submenu.push({
+      type: 'separator'
+      },
+      {
+        label: 'Bring All to Front'
+        role: 'front'
+      })
+
 
   menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
