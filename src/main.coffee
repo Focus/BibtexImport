@@ -1,5 +1,6 @@
 app = require('electron').app
 ipc = require('electron').ipcMain
+dialog = require('electron').dialog
 BrowserWindow = require('electron').BrowserWindow
 Config = require './configuration'
 
@@ -21,6 +22,9 @@ compareVersions= (ver1, ver2)->
 
 checkForUpdates= ->
   request = require 'request'
+  lastDate = Config.getConf "updateCheckDate"
+  if lastDate?
+    return if (Date.now() - lastDate)/86400000 < 5
   request {url:"https://github.com/Focus/BibtexImport/releases/latest", followRedirect: false}, (error, response, body)->
     if error
       console.log(error)
@@ -31,8 +35,17 @@ checkForUpdates= ->
     version = body.match(/\/v(.*?)"/)
     if version.length > 1
       pjson = require '../package.json'
+      Config.setConf "updateCheckDate", Date.now()
       if compareVersions version[1], pjson.version
-        console.log "update required"
+        dialog.showMessageBox {
+          type: "info"
+          title: "Update available"
+          message: "A new update is available to download! You have version #{pjson.version} and the latest version is #{version[1]}. Would you like to visit our website to obtain the new version?"
+          buttons: ["No", "Yes"]
+        } , (res)->
+          if res
+            require('electron').shell.openExternal pjson.homepage
+
 
 
 newWindow= ->

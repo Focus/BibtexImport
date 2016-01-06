@@ -22,9 +22,9 @@
     "build": "./scripts/build.sh",
     "clean:dist": "rm -R ./dist",
     "clean": "rm -R ./dist ./bins",
-    "package:osx": "electron-builder bins/BibtexImport-darwin-x64/BibtexImport.app --platform=osx --out=dist/osx64 --config=support/installer.json ",
-    "package:win32": "electron-builder bins/BibtexImport-win32-ia32/ --platform=win --out=dist/win32 --config=support/installer.json ",
-    "package:win64": "electron-builder bins/BibtexImport-win32-x64/ --platform=win --out=dist/win64 --config=support/installer.json",
+    "package:osx": "electron-builder bins/BibtexImport-darwin-x64/BibtexImport.app --platform=osx --out=dist/osx64/ --config=support/installer.json ",
+    "package:win32": "electron-builder bins/BibtexImport-win32-ia32/ --platform=win --out=dist/win32/ --config=support/installer.json ",
+    "package:win64": "electron-builder bins/BibtexImport-win32-x64/ --platform=win --out=dist/win64/ --config=support/installer.json",
     "package": "npm run clean:dist && npm run package:osx && npm run package:win32 && npm run package:win64"
   }
 }

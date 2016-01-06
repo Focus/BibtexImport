@@ -1,4 +1,4 @@
-# Bibtex Import
+# [Bibtex Import](http://focus.github.io/BibtexImport/)
 
 *Bibtex Import* is an app that lets users get Bibtex references from [MathSciNet](http://www.ams.org/mathscinet/index.html).
 
@@ -9,6 +9,30 @@ It is written in [CoffeeScript](http://coffeescript.org) and built using [Electr
 Installation
 ==========
 
+### Installing from binary
+
+Binaries files are available on the [website](http://focus.github.io/BibtexImport/). For older versions or other operating systems than your own, [click here](http://github.com/Focus/BibtexImport/releases).
+
+### Build from source
+
+To build from source you will need to first install [Node.js](https://nodejs.org/) and [git](https://git-scm.com). First check out the respository using
+```
+git clone https://github.com/Focus/BibtexImport.git
+```
+then to compile and build use
+```
+cd ./BibtexImport
+npm install
+npm start
+```
+
+Features
+========
+
+- Search MathSciNet by author and title
+- Quickly obtain references in bibtex format
+- Easy to use interface
+- Automatically obtain remote access from MathSciNet
 
 Usage
 =====

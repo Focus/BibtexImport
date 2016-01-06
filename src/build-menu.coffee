@@ -1,6 +1,7 @@
 Menu = require('electron').Menu
 app = require('electron').app
 ipc = require('electron').ipcMain
+pjson = require '../package.json'
 # dialog = require('electron').dialog
 
 
@@ -38,7 +39,7 @@ exports.buildMenu = (newWindowFunc)->
       {label: 'Close', accelerator: 'CmdOrCtrl+W', role: 'close'}
     ]}
     {label: 'Help', submenu: [
-      {label: 'Learn More', click: -> require('electron').shell.openExternal "https://github.com/focus/bibteximport/"}
+      {label: 'Learn More', click: -> require('electron').shell.openExternal pjson.homepage}
       ]}
   ]
   if process.platform is "darwin"
