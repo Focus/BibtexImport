@@ -15,7 +15,7 @@ Binaries files are available on the [website](http://focus.github.io/BibtexImpor
 
 ### Build from source
 
-To build from source you will need to first install [Node.js](https://nodejs.org/) and [git](https://git-scm.com). First check out the respository using
+To build from source you will need to first install [Node.js](https://nodejs.org/) and [git](https://git-scm.com). First check out the repository using
 ```
 git clone https://github.com/Focus/BibtexImport.git
 ```
