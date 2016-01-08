@@ -13,7 +13,6 @@ searchButton = document.getElementById "searchButton"
 authorField = document.getElementById "author"
 titleField = document.getElementById "title"
 citeTable = document.getElementById "citeTable"
-# dialog = document.getElementById "dialog"
 dialogContent = document.getElementById "dialogContent"
 dialogTitle = document.getElementById "modalTitle"
 
@@ -33,7 +32,7 @@ ipc.on "copy", ->
 ipc.on "selectAll", ->
   if authorField is document.activeElement
     authorField.select()
-  if titleField is document.activeElement
+  else if titleField is document.activeElement
     titleField.select()
   else
     ct.selectAll()
@@ -49,11 +48,11 @@ ipc.on "paired", ->
   jQuery("#modal").modal("show")
 
 authorField.addEventListener "keyup", (event) ->
-  if event.keyCode is 13
+  if event.keyCode is 13 #Enter key
     searchButton.click()
 
 titleField.addEventListener "keyup", (event) ->
-  if event.keyCode is 13
+  if event.keyCode is 13 #Enter key
     searchButton.click()
 
 searchButton.addEventListener "click", =>
