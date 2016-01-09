@@ -33,6 +33,20 @@ module.exports = (grunt)->
           ignore: "<%= grunt.option(\"excludes\") %>"
         }
       }
+      osx:{
+        options:{
+          name: "<%= pkg.productName %>"
+          dir: './'
+          out: 'bins/'
+          version: '0.36.0'
+          platform: 'darwin'
+          arch: 'x64'
+          icon: './icons/icon.icns'
+          overwrite: true
+          'app-version': "<%= pkg.version %>"
+          ignore: "<%= grunt.option(\"excludes\") %>"
+        }
+      }
     }
     'electron-builder':{
       osx: {
@@ -83,14 +97,21 @@ module.exports = (grunt)->
       }
     }
   }
-  require('load-grunt-tasks')(grunt)
+
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-electron'
+  grunt.loadNpmTasks 'grunt-electron-builder-wrapper'
+  grunt.loadNpmTasks 'grunt-electron-debian-installer'
 
   grunt.registerTask "default", ["coffee","copy:pages"]
   grunt.registerTask "build", ["default", "excludes", "electron"]
+  grunt.registerTask "build:osx", ["default", "excludes", "electron:osx"]
   grunt.registerTask "package", ["electron-builder", "electron-debian-installer"]
+  grunt.registerTask "package:osx", ["electron-builder:osx"]
   grunt.registerTask "excludes", ->
     pjson = grunt.file.readJSON "package.json"
-    exclude = "(Gruntfile.coffee|LICENCE|src|README.md|icons|support|bins|dist"
+    exclude = "(Gruntfile\.coffee|LICENCE|^\/src|README.md|^\/icons|^\/support|^\/bins|^\/dist"
     for dep in Object.keys(pjson.devDependencies)
       exclude += "|node_modules/" + dep
     exclude += ")"
