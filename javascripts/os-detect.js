@@ -1,5 +1,4 @@
 var version = "1.0.1";
-var platform = require('./platform');
 var cpu = window.navigator.cpuClass;
 var link = document.getElementById("link");
 var small = document.getElementById("small");
