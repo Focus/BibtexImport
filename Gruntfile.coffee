@@ -105,7 +105,7 @@ module.exports = (grunt)->
   grunt.loadNpmTasks 'grunt-electron-debian-installer'
 
   grunt.registerTask "default", ["coffee","copy:pages"]
-  grunt.registerTask "build", ["default", "excludes", "electron"]
+  grunt.registerTask "build", ["default", "excludes", "electron:all"]
   grunt.registerTask "build:osx", ["default", "excludes", "electron:osx"]
   grunt.registerTask "package", ["electron-builder", "electron-debian-installer"]
   grunt.registerTask "package:osx", ["electron-builder:osx"]
